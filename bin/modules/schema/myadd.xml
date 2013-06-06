@@ -1,0 +1,18 @@
+<table modulename="Myadd" default_view="display" orderby="var1" order="asc" limit="20" enable_new="true" enable_edit="true" enable_delete="true" enable_asset_rights="owner_read">
+<view name="display" displayname="Display" />
+<view name="details" displayname="Details" showinsingleview="true" tfield_1="var1" tfield_2="var2" />
+<!--
+<field name="id" simple_type="id" displayname="Id">
+<notin views="display" />
+</field>
+-->
+<field name="var1" id="var1" displayname="var1" simple_type="int" required="true" />
+<field name="var2" id="var2" displayname="var2" simple_type="int" required="true" />
+<field name="var3" displayname="var3" simple_type="int" notinall="true">
+<filter views="all" function="test::myadd"/>
+<onlyin views="display|details"/>
+</field>
+<field name="description" displayname="程式說明" simple_type="textarea" simple_size="4">
+<notin views="display" />
+</field>
+</table> 

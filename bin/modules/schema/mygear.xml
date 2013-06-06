@@ -1,0 +1,30 @@
+<table modulename="Mygear" default_view="display" orderby="power" order="asc" limit="20" enable_new="true" enable_edit="true" enable_delete="true">
+
+<view name="display" displayname="Display" />
+
+<view name="details" displayname="Details" showinsingleview="true" tfield_1="power" tfield_2="rpm" />
+
+<field name="power" id="power" displayname="馬達馬力" simple_type="int" required="true" />
+
+<field name="rpm" id="rpm" displayname="馬達轉速" simple_type="int" required="true" />
+
+<field name="ratio" id="ratio" displayname="齒輪減速比" simple_type="int" required="true" />
+
+<field name="type" displayname="齒形" simple_type="select" simple_size="1" required="true">
+	<data reverse="true" values="1_##_壓力角20度,a=0.8,b=1.0|2_##_壓力角20度,a=1.0,b=1.25|3_##_壓力角25度,a=1.0,b=1.25|4_##_壓力角25度,a=1.0,b=1.35"/>
+</field>
+  
+<field name="factor" id="factor" displayname="安全係數" simple_type="int" required="true" />
+
+<field name="material" displayname="材料" simple_type="select" simple_size="1" required="true">
+    <data function="dbselect|simple_material|strength2,mname|activated=1|mname asc|10"/>
+</field>
+  
+<field name="pinion" id="pinion" displayname="小齒輪齒數" simple_type="int" required="true" />
+
+<field name="verify" displayname="verify" simple_type="text" notinall="true">
+<filter views="all" function="test::mygear"/>
+<onlyin views="display|details"/>
+</field>
+
+</table>

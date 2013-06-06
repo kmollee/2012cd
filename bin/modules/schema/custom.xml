@@ -1,0 +1,7 @@
+<table modulename="Custom PHP include" default_view="display" default_sql="no_select" schema_mode="static" load_library="../custom/core/classes/custom.php">
+  <view name="display" displayname="Display" function="get_my_data">
+  </view>
+  <field name="id" simple_type="id" displayname="{t}Id{/t}">
+  </field>
+</table>
+
